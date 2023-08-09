@@ -6,10 +6,12 @@ export default function TextForm(props) {
     // console.log("UpperCase was Clicked : " + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UpperCase!", "success");
   };
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to LowerCase!", "success");
   };
 
   const handleOnChange = (event) => {
@@ -46,7 +48,9 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "light" ? "white" : " #45082c",
+              backgroundColor:
+                props.mode === "light" ? "white" : "rgb(10 30 72)",
+              // eslint-disable-next-line react/prop-types
               color: props.mode === "dark" ? "white" : "grey",
             }}
             id="myBox"
